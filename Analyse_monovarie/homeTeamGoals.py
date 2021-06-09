@@ -11,9 +11,9 @@ if __name__ == '__main__':
 
     WICH_COLUMN = 6
 
-    print(getNumberOfUniqueValue(dataframe,WICH_COLUMN))
-    print(getClasses(dataframe,WICH_COLUMN))
+    #print(getNumberOfUniqueValue(dataframe,WICH_COLUMN))
+    #print(getClasses(dataframe,WICH_COLUMN))
 
 
     columnName = getOneHeader(dataframe, WICH_COLUMN)
-    showHistogram_quantitavVar(dataframe,WICH_COLUMN,columnName)
+    showHistogram_qualitativVar(dataframe, WICH_COLUMN, columnName)

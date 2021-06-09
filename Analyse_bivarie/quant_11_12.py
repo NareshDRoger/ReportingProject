@@ -11,6 +11,7 @@ if __name__ == '__main__':
 
     var1 = 11
     var2 = 12
+    var3 = 13
 
     t = correlationTable(dataframe,var1,var2)
     print(t)

@@ -1,6 +1,6 @@
 # from FUNCTIONS import *
 
-from Analyse_bivarie.FUNCTIONS import *
+from FUNCTIONS import *
 
 if __name__ == '__main__':
 

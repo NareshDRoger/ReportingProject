@@ -11,6 +11,6 @@ if __name__ == '__main__':
 
     WICH_COLUMN = 9
 
-    print(getNumberOfUniqueValue(dataframe,WICH_COLUMN))
     print(getClasses(dataframe,WICH_COLUMN))
+
 
