@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
 import scipy
+import seaborn as sns
+from matplotlib.pyplot import figure
 
 
 #RETOURNE LE DATAFRAME
@@ -83,11 +85,15 @@ def showHistogram_quantitavVar_ZOOM(df,index,columnName,xmin,xmax,ymin,ymax):
 
 
 #AFFICHE L'HISTOGRAMMEN POUR UNE COLONNE QUALITATIVE
-def showHistogram_qualitativVar(df,index,columnName):
-    df[df.columns[index]].value_counts().plot(kind='bar')#.sort_index().plot(kind='bar')
-    plt.title(columnName)
+def showHistogram_qualitativVar(df,index,titleOfHist, xName, yName):
+    f, axes = plt.subplots()
+    df[df.columns[index]].value_counts().sort_index().plot(kind='bar',color='darkturquoise')#.value_counts().plot(kind='bar')
+    axes.set_xlabel(xName)
+    axes.set_ylabel(yName)
+    plt.title(titleOfHist)
     plt.grid(linewidth=0.25)
     plt.show()
+
 
 
 

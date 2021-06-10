@@ -7,15 +7,16 @@ from FUNCTIONS import *
 
 if __name__ == '__main__':
 
-    filename = 'C:/Users/hejar/OneDrive/Bureau/ESGI/Reporting et restitution (S2)/PROJET/WorldCupMatches.csv'
+    filename = '../WorldCupMatches.csv'
     dataframe = getDataframe(filename)
 
 
     WICH_COLUMN = 0
     columnName = getOneHeader(dataframe,WICH_COLUMN)
-    showHistogram_qualitativVar(dataframe, WICH_COLUMN, columnName)
+    titleHist = "EVOLUTION DU NOMBRE DE MATCH PAR ANNEE"
+    showHistogram_qualitativVar(dataframe, WICH_COLUMN, titleHist, "Années", "Nombre de match")
 
-    #print(getClasses(dataframe, WICH_COLUMN))
+    print(getClasses(dataframe, WICH_COLUMN))
     #print(getClasses(dataframe, WICH_COLUMN).index)
 
 
