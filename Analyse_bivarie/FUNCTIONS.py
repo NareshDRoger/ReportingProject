@@ -11,6 +11,11 @@ def getDataframe(filename):
     return df
 
 
+#AVOIR LES CLASSES ET LE NOMBRE D'ELEMENT
+def getClasses(df,index):
+    return df[df.columns[index]].value_counts()
+
+
 #RETOURNE LE NOM D'UN HEADER DU DATAFRAME
 def getOneHeader(df,index):
     return df.columns[index]
@@ -20,6 +25,11 @@ def getOneHeader(df,index):
 #RETOURNE UNE COLONNE DU DATAFRAME
 def getOneColumn(df,index):
     return df[df.columns[index]]
+
+
+#RETOURNE DEUX COLONNE DU DATAFRAME
+def getTwoColumn(df,column1, column2):
+    return df[[column1, column2]]
 
 
 
@@ -75,3 +85,16 @@ def correlationTable(df,index1,index2):
 
     corrMatrix = dfResult.corr()
     return corrMatrix
+
+
+
+
+#AFFICHE L'HISTOGRAMMEN POUR UNE COLONNE QUALITATIVE
+def showHistogram_qualitativVar(df,index,titleOfHist, xName, yName):
+    f, axes = plt.subplots()
+    df[df.columns[index]].value_counts().head(10).plot(kind='bar',color='lightcoral')#.value_counts().plot(kind='bar')
+    axes.set_xlabel(xName)
+    axes.set_ylabel(yName)
+    plt.title(titleOfHist)
+    plt.grid(linewidth=0.25)
+    plt.show()
