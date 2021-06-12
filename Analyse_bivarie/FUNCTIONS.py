@@ -98,3 +98,15 @@ def showHistogram_qualitativVar(df,index,titleOfHist, xName, yName):
     plt.title(titleOfHist)
     plt.grid(linewidth=0.25)
     plt.show()
+
+
+
+
+def showHistogram_qualitativVar_2(df,titleOfHist, xName, yName):
+    #f, ax = plt.subplots()
+    axes = df.plot(kind='bar')
+    axes.set_xlabel(xName)
+    axes.set_ylabel(yName)
+    plt.title(titleOfHist)
+    plt.grid(linewidth=0.25)
+    plt.show()
