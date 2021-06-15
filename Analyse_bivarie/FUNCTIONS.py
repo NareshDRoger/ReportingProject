@@ -32,6 +32,11 @@ def getTwoColumn(df,column1, column2):
     return df[[column1, column2]]
 
 
+#RETOURNE TROIS COLONNE DU DATAFRAME
+def getThreeColumn(df,column1, column2, column3):
+    return df[[column1, column2,column3]]
+
+
 
 #RETOURNE TOUTE LES CLASSES DE LA COLONNE
 def getNumberOfUniqueValue(df,index):

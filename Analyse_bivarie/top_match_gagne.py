@@ -19,11 +19,8 @@ if __name__ == '__main__':
 
     colLenght = len(getOneColumn(dataframe,WICH_COLUMN_1))
 
-    """
-    for i in range(colLenght):
-        if(str(dat.loc[i]) != " "):
-            print(str(dat.loc[i]).split()[0])
-    """
+
+
 
     #CREER 2 DATAFRAME AVEC 2 COLONNES CHACUN
     dataframeH1H2 = getTwoColumn(dataframe,h1,h2)
