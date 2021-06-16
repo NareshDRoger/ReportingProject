@@ -38,6 +38,12 @@ def getThreeColumn(df,column1, column2, column3):
 
 
 
+#RETOURNE QUATRE COLONNE DU DATAFRAME
+def getFourColumn(df,column1, column2, column3,column4):
+    return df[[column1, column2,column3,column4]]
+
+
+
 #RETOURNE TOUTE LES CLASSES DE LA COLONNE
 def getNumberOfUniqueValue(df,index):
     l = list(getOneColumn(df,index))
