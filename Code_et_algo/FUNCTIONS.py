@@ -10,6 +10,11 @@ def getDataframe(filename):
     df.dropna(axis=0, how='all', inplace=True)
     return df
 
+def getDataframeFromExcel(filename):
+    df = pd.read_excel(filename)
+    df.dropna(axis=0, how='all', inplace=True)
+    return df
+
 
 #AVOIR LES CLASSES ET LE NOMBRE D'ELEMENT
 def getClasses(df,index):
