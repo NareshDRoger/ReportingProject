@@ -7,23 +7,16 @@ if __name__ == '__main__':
     dataframe = getDataframe(filename)
     dataframeGoal = getDataframe(filenameGoldGoal)
 
-
+    #FILTRER LE FICHIER DES BALLONS D'OR SUR JUSTE LE PREMIER QUI A RECU LE BALLON D'OR (non les 2nd et 3eme)
     row = 0
     for i in dataframeGoal.values:
         if(i[2] != "1st"):
             dataframeGoal.drop(row,inplace=True)
         row += 1
-    #print(dataframeGoal)
-
-    dataframeGoal.to_csv("../ballonOrModifie.csv")
+    dataframeGoal.to_csv("../ballonOrTemporaire.csv")
 
 
-    colYearCup = getOneColumn(dataframe, 0)
-    colCountryCup = getOneColumn(dataframe, 1)
-    colWinnerCup = getOneColumn(dataframe, 2)
-    colSecondCup = getOneColumn(dataframe, 3)
-    colThirdCup = getOneColumn(dataframe, 4)
-    colFourthCup = getOneColumn(dataframe, 5)
+
 
 
 
@@ -45,46 +38,65 @@ if __name__ == '__main__':
     #initialise l'excel ballonOrPays
     fileExcel = '../ballonOrPays.xlsx'
     dataframeFinalGold = getDataframeFromExcel(fileExcel)
-    #prendre les colones qu'on veut et les mettrei en series.Series
-    colYearGold = getOneColumn(dataframeFinalGold,0)
-    colTest = getOneColumn(dataframeFinalGold,3)
-    colCountryGold = getOneColumn(dataframeFinalGold,6)
-    print(colCountryGold)
-    #faire comme dans le grapeh 2
-    #En x => années
-    #En y => pays
-    #une courbes sur les ballons d'or
-    #une courbe sur les winnner
-    #...runners-up
-    #..
-    #.
+    # FILTRER SUR LES PREMIERS DU BALLON D'OR
+    row = 0
+    for i in dataframeFinalGold.values:
+        if (i[0] < 1970 or i[0] > 1990):
+            dataframeFinalGold.drop(row, inplace=True)
+        row += 1
+    row2 = 0
+    for i in dataframe.values:
+        if (i[0] < 1970 or i[0] > 1990):
+            dataframe.drop(row2, inplace=True)
+        row2 += 1
 
-    fig, ax = plt.subplots(figsize=(6.5, 6.5))
+
+
+
+    colYearCup = getOneColumn(dataframe, 0)
+    colCountryCup = getOneColumn(dataframe, 1)
+    colWinnerCup = getOneColumn(dataframe, 2)
+    colSecondCup = getOneColumn(dataframe, 3)
+    colThirdCup = getOneColumn(dataframe, 4)
+    colFourthCup = getOneColumn(dataframe, 5)
+    colYearGold = getOneColumn(dataframeFinalGold, 0)
+    colPlayerGold = getOneColumn(dataframeFinalGold, 2)
+    colCountryGold = getOneColumn(dataframeFinalGold, 6)
+
+
+
+    #COUPE DU MONDE PODIUM
+    fig, ax = plt.subplots(figsize=(10, 10))
     # WINNER
-    ax.plot(colYearCup, colWinnerCup, marker=".", color='gold',LineStyle='none')
+    ax.plot(colYearCup, colWinnerCup, marker="s", color='gold', LineStyle='none')
     # SECOND
-    ax.plot(colYearCup, colSecondCup, marker=".", color='magenta',LineStyle='none')
+    ax.plot(colYearCup, colSecondCup, marker="s", color='magenta', LineStyle='none')
     # THIRD
-    ax.plot(colYearCup, colThirdCup, marker=".", color='lime',LineStyle='none')
+    ax.plot(colYearCup, colThirdCup, marker="s", color='lime', LineStyle='none')
 
     # FOURTH
-    ax.plot(colYearCup, colFourthCup, marker=".", color='red',LineStyle='none')
-    plt.xticks(np.arange(1930, 2014, 8))
-    titleHist = "PODIUM ET SITUATION DU PAYS HOTE"
-    #plt.title(titleHist)
+    ax.plot(colYearCup, colFourthCup, marker="s", color='red', LineStyle='none')
+    plt.xticks(np.arange(1970, 1990, 1))
+    titleHist = "PODIUM DE LA COUPE DU MONDE de 1970 à 1990"
+    plt.title(titleHist)
     plt.grid(linewidth=0.25)
     plt.show()
 
 
 
-    fig2, ax = plt.subplots(figsize=(6.5, 6.5))
+    #BALLON D'OR
+    fig2, ax = plt.subplots(figsize=(10, 10))
     # BALLON D'OR
-    ax.plot(colYearGold, colTest, marker=".", color='gold', LineStyle='none')
-    plt.xticks(np.arange(1958, 2019, 2))
-    #titleHist = "PODIUM ET SITUATION DU PAYS HOTE"
-    # plt.title(titleHist)
+    ax.plot(colYearGold, colCountryGold, marker=".", color='black', LineStyle='none')
+
+
+    plt.xticks(np.arange(1970, 1990, 1))
+    titleHist2 = "BALLON D'OR de 1970 à 1990"
+    plt.title(titleHist2)
     plt.grid(linewidth=0.25)
     plt.show()
+    
+
 
 
 
