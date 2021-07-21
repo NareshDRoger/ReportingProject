@@ -37,7 +37,7 @@ if __name__ == '__main__':
             LineStyle='none')
 
     plt.xticks(np.arange(1930, 2014, 8))
-    titleHist = "PODIUM ET SITUATION DU PAYS HOTE"
+    titleHist = "PODIUM ET PAYS D'ACCEUIL DES CHAMPIONNATS"
     plt.title(titleHist)
     plt.grid(linewidth=0.25)
     plt.show()

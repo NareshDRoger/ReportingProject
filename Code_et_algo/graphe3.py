@@ -3,7 +3,7 @@ import csv
 
 if __name__ == '__main__':
     filename = '../WorldCups.csv'
-    filenameGoldGoal = '../ballonOr.csv'
+    filenameGoldGoal = '../Fichier_Temporaire_Graphe3/ballonOr.csv'
     dataframe = getDataframe(filename)
     dataframeGoal = getDataframe(filenameGoldGoal)
 
@@ -13,7 +13,7 @@ if __name__ == '__main__':
         if(i[2] != "1st"):
             dataframeGoal.drop(row,inplace=True)
         row += 1
-    dataframeGoal.to_csv("../ballonOrTemporaire.csv")
+    dataframeGoal.to_csv("../Fichier_Temporaire_Graphe3/ballonOrTemporaire.csv")
 
 
 
@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
 
     #initialise l'excel ballonOrPays
-    fileExcel = '../ballonOrPays.xlsx'
+    fileExcel = '../Fichier_Temporaire_Graphe3/ballonOrPays.xlsx'
     dataframeFinalGold = getDataframeFromExcel(fileExcel)
     # FILTRER SUR LES PREMIERS DU BALLON D'OR
     row = 0
